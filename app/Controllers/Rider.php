@@ -11,7 +11,7 @@ class Rider extends BaseController
     public function index()
     {
         $rider = new ModelRider();
-        $rider2 = $rider->where('country', "fr")->orderBy('first_name', 'asc')->paginate(21); 
+        $rider2 = $rider->where('country', "fr")->orderBy('first_name', 'asc')->paginate(21);
         $data = [
             "riderV" => $rider2
         ];
