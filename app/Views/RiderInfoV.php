@@ -1,7 +1,9 @@
+
+
 <?= $this->extend('Layout/template'); ?>
 <?= $this->section("content");?>
 
-<h1 class="text-center p-2"> Info o Závodníkovi z Francie</h1>
+<h1 class="text-center p-2"> Info o Závodníkovi <?= $rider3 -> first_name?> <?= $rider3 -> last_name?> </h1>
 
 
 <?php
@@ -12,10 +14,12 @@
 
 $table = new \CodeIgniter\View\Table();
 $table->setHeading( 'Místo narození','Datum narození', 'Výška', 'Váha');
-/** @var array $riderInfoV */
+/** @var array $riderInfoV 
+ * 
+*/
 foreach($riderInfoV as $row)
 {
-    $table->addRow($row->place_of_birth, $row->date_of_birth, $row->height, $row->weight);
+    $table->addRow($row->name, $row->date_of_birth, $row->height."cm", $row->weight."kg");
 }
 $template = array(
     'table_open'=> '<table class="table table-bordered">',

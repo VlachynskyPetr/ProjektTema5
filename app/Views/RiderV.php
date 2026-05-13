@@ -6,6 +6,7 @@
   <div class="row">
 <?php
 /** @var array $riderV */
+/** @var String $id */
 foreach($riderV as $row)
 {
 ?>
@@ -14,7 +15,8 @@ foreach($riderV as $row)
     <img class="card-img-top" src="<?= base_url("img/riders/".$row->photo)?>" alt="Card image" style="width:100%">
     <div class="card-body">
       <h4 class="card-title"><?= $row->first_name." ".$row->last_name  ?></h4>
-      <a href="#" class="btn btn-primary">Informace</a>
+      
+    <?=  anchor('rider/info/'.$row->id ,'Informace', ['class => btn btn-primary']) ?>
     </div>
   </div>
 </div>
@@ -27,6 +29,6 @@ foreach($riderV as $row)
 </div>
 
 base_url("img/riders/".$row->photo)?>
- 
+ <?php anchor('rider/info/',  'Infomace') ?>
  
 <?= $this->endSection();?>
