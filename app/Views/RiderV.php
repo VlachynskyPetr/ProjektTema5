@@ -5,7 +5,7 @@
 <div class="container mt-3">
   <div class="row">
 <?php
-
+/** @var array $riderV */
 foreach($riderV as $row)
 {
 ?>

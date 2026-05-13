@@ -12,6 +12,7 @@
 
 $table = new \CodeIgniter\View\Table();
 $table->setHeading( 'Místo narození','Datum narození', 'Výška', 'Váha');
+/** @var array $riderInfoV */
 foreach($riderInfoV as $row)
 {
     $table->addRow($row->place_of_birth, $row->date_of_birth, $row->height, $row->weight);
