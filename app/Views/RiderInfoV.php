@@ -1,5 +1,11 @@
-
-
+<?php
+/**
+ * @var Object $rider3
+ *  @var object $riderInfoV 
+ * 
+ * 
+ */
+?>
 <?= $this->extend('Layout/template'); ?>
 <?= $this->section("content");?>
 
@@ -14,13 +20,17 @@
 
 $table = new \CodeIgniter\View\Table();
 $table->setHeading( 'Místo narození','Datum narození', 'Výška', 'Váha');
-/** @var array $riderInfoV 
- * 
-*/
-foreach($riderInfoV as $row)
-{
-    $table->addRow($row->name, $row->date_of_birth, $row->height."cm", $row->weight."kg");
-}
+/**  if($riderInfoV->name == null)
+    {
+        $riderInfoV == "???";
+    }
+    if($riderInfoV->date_of_birth == null)
+    {
+        $riderInfoV->height == "???";
+    }
+        */
+    $table->addRow( $riderInfoV->date_of_birth, $riderInfoV->height."cm", $riderInfoV->weight."kg");
+    
 $template = array(
     'table_open'=> '<table class="table table-bordered">',
     'thead_open'=> '<thead>',

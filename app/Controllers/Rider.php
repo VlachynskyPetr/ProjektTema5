@@ -25,7 +25,7 @@ class Rider extends BaseController
     {
         $rider = new ModelRider;
        $rider3 = $rider->where('id', $id)->first();
-        $rider2 = $rider->join('location', 'rider.place_of_birth=.location.id', 'inner')->where('id', $id)->findAll();
+        $rider2 = $rider->join('location', 'rider.place_of_birth=location.id', 'left')->find($id);
         $data = [
             "riderInfoV" => $rider2,
             'id' => $id,
