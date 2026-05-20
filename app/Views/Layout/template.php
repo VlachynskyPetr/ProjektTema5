@@ -6,8 +6,10 @@
     <?= $this->include('layout/css'); ?>
 
 </head>
-<body>
+<body >
+<img src="img/pozadiKolo.png" alt="img/pozadiKolo.png"> 
     <div class="container">
+        
 <?= $this->renderSection('content'); ?>
 </div>
 </body>
