@@ -7,3 +7,4 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Rider::index');
 $routes->get('rider/info/(:num)', 'Rider::index2/$1');
+$routes->get('rider/born', 'Rider::index3');

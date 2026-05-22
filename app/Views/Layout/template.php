@@ -2,12 +2,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zavodnici z Francie</s></title>
+    <title>Zavodnici z Francie</title>
     <?= $this->include('layout/css'); ?>
+    
+ 
+    <style>body {
+    margin: 0;
+    min-height: 200vh;
 
+    background-image: url("img/pozadiKolo.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+        
+    /* obrázek zůstane při scrollu */
+    background-attachment: fixed;
+    
+}
+
+
+</style>
 </head>
 <body >
-<img src="img/pozadiKolo.png" alt="img/pozadiKolo.png"> 
+
     <div class="container">
         
 <?= $this->renderSection('content'); ?>

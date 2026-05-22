@@ -26,6 +26,7 @@ if ($riderInfoV->place_of_birth == null) {
     $misto = "???";
 } else {
     $misto = $riderInfoV->name;
+    $misto = anchor('rider/born' ,$misto );
 }
 
 // datum narozeni 2
@@ -49,7 +50,7 @@ if ($riderInfoV->weight == 0) {
     $vaha = $riderInfoV->weight;
 }
 
-$table->addRow($misto, $narozeni, $vyska . "cm", $vaha . "kg");
+$table->addRow( $misto, $narozeni, $vyska . "cm", $vaha . "kg");
 
 $template = array(
     'table_open' => '<table class="table table-bordered">',

@@ -11,7 +11,7 @@ class Rider extends BaseController
     public function index()
     {
         $rider = new ModelRider();
-        $rider2 = $rider->where('country', "fr")->orderBy('first_name', 'asc')->paginate(20);
+        $rider2 = $rider->where('country', "fr")->orderBy('first_name', 'asc')->paginate(24);
         $pager = $rider->pager;
         $data = [
             "riderV" => $rider2,
@@ -23,7 +23,7 @@ class Rider extends BaseController
  * @param $id - id závodníka, který chceme zobrazit 
  */
 
-    public function index2($id)
+    public function index2(int $id)
     {
         $rider = new ModelRider;
        $rider3 = $rider->where('id', $id)->first();
@@ -39,4 +39,20 @@ class Rider extends BaseController
         ];
         echo view("RiderInfoV", $data);
     }
+     public function index3()
+     {
+        $rider = new ModelRider;
+     //  $rider3 = $rider->where('id', $id)->first();
+        $rider2 = $rider->join('location', 'rider.place_of_birth=location.id', 'left')->find();
+     
+        $data = [
+            "riderBorn" => $rider2,
+          //  'id' => $id,
+         //   "rider3" => $rider3
+           
+           
+
+        ];
+        echo view("RiderBorn", $data);
+     }
 }

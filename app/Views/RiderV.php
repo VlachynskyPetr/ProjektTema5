@@ -1,34 +1,31 @@
 <?= $this->extend('Layout/template'); ?>
 <?= $this->section("content");?>
  
-<h1 class="text-center p-4">Závodníci z Francie</h1>
+<h1 class="text-center  p-4" style="color: white;">ZÁVODNÍCÍ Z FRANCIE</h1>
 <div class="container mt-3 pb-5 text-center">
   <div class="row">
 <?php
-/** @var array $riderV */
-/** @var String
- * @var String  $id
+/** @var array $riderV 
  * @var Object $pager
- * @var Object $row 
  * */
 
- foreach($riderV as $row)
+ foreach($riderV as $row1)
 {
 ?>
-<div class="col-md-3 mb-3 ">
-  <div class="card" style="width:300px">
+<div class="col-md-2 mb-2 ">
+  <div class="card" style="width:200px">
     <?php
-  if ($row->photo == null) {
+  if ($row1->photo == null) {
   ?> <img class="card-img-top" src="<?= base_url("img/neznamej.png")?>" alt="Card image" style="width:100%"> <?php
 } else {
-  ?> <img class="card-img-top" src="<?= base_url("img/riders/".$row->photo)?>" alt="Card image" style="width:100%"> <?php
+  ?> <img class="card-img-top" src="<?= base_url("img/riders/".$row1->photo)?>" alt="Card image" style="width:100%"> <?php
 }
 ?>
     
-    <div class="card-body">
-      <h4 class="card-title"><?= $row->first_name." ".$row->last_name  ?></h4>
+    <div class="card-body " >
+      <h5 class="card-title" style="font-size:16px"><?= $row1->first_name." ".$row1->last_name  ?></h4>
       
-    <?=  anchor('rider/info/'.$row->id ,'Informace', ['class' => 'btn btn-primary']) ?>
+    <?=  anchor('rider/info/'.$row1->id ,'Informace', ['class' => 'btn btn-primary']) ?>
     
     </div>
   </div>
