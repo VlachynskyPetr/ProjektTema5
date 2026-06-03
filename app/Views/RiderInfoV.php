@@ -26,7 +26,7 @@ if ($riderInfoV->place_of_birth == null) {
     $misto = "???";
 } else {
     $misto = $riderInfoV->name;
-    $misto = anchor('rider/born' ,$misto );
+    $misto = anchor('rider/born/'.$riderInfoV->id ,$misto );
 }
 
 // datum narozeni 2

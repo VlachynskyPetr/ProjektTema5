@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 use App\Models\Rider as ModelRider;
+use App\Models\Location;
 
 class Rider extends BaseController
 {
@@ -26,8 +27,12 @@ class Rider extends BaseController
     public function index2(int $id)
     {
         $rider = new ModelRider;
+        $lokace = new Location;
        $rider3 = $rider->where('id', $id)->first();
+       
         $rider2 = $rider->join('location', 'rider.place_of_birth=location.id', 'left')->find($id);
+   
+
      
         $data = [
             "riderInfoV" => $rider2,
@@ -39,18 +44,19 @@ class Rider extends BaseController
         ];
         echo view("RiderInfoV", $data);
     }
-     public function index3()
+     public function index3(int $id)
      {
         $rider = new ModelRider;
-     //  $rider3 = $rider->where('id', $id)->first();
-        $rider2 = $rider->join('location', 'rider.place_of_birth=location.id', 'left')->find();
+        $lokace = new Location;
+
+        $rider3 = $lokace->where('id', $id)->first();
+        $rider2 = $rider->select('rider.*')->join('location', 'rider.place_of_birth=location.id', 'left')->where('place_of_birth', $id)->findAll($id);
      
         $data = [
-            "riderBorn" => $rider2,
-          //  'id' => $id,
-         //   "rider3" => $rider3
-           
-           
+            "riderBorn" => $rider3,
+            "riderInfoV" => $rider2,
+            'id' => $id,
+        
 
         ];
         echo view("RiderBorn", $data);
