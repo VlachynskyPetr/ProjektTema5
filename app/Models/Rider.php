@@ -10,9 +10,23 @@ class Rider extends Model
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'object';
-    protected $useSoftDeletes   = false;
+    
+    // AKTUALIZOVÁNO: Zapnutí Soft Deletes podle zadání (záznamy se fyzicky nesmažou)
+    protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+
+    // AKTUALIZOVÁNO: Ochrana sloupců – definice polí, která lze přes aplikaci spravovat
+    protected $allowedFields    = [
+        'first_name', 
+        'last_name', 
+        'country', 
+        'photo', 
+        'date_of_birth', 
+        'height', 
+        'weight',
+        'place_of_birth', // Pokud využíváš vazbu na tabulku lokací
+        'description'     // Sloupec pro data z WYSIWYG editoru
+    ];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -21,11 +35,12 @@ class Rider extends Model
     protected array $castHandlers = [];
 
     // Dates
-    protected $useTimestamps = false;
+    // AKTUALIZOVÁNO: Zapnutí automatických timestampů pro ukládání dat operací v tabulce
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
+    protected $deletedField  = 'deleted_at'; // Sem se uloží timestamp při Soft Delete
 
     // Validation
     protected $validationRules      = [];
