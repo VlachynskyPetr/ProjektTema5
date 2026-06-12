@@ -3,7 +3,15 @@
  
 <h1 class="text-center  p-4" style="color: white;">ZÁVODNÍCÍ Z FRANCIE</h1>
 <div class="container mt-3 pb-5 text-center">
+
+
+<div class="row">
+    <div class=" col-md-2 mb-2 ">
+    <?=  anchor('polozka/pridat','Pridat jezdce', ['class' => 'btn btn-primary']) ?>
+  </div>
+  </div>
   <div class="row">
+    
 <?php
 /** @var array $riderV 
  * @var Object $pager
@@ -12,7 +20,7 @@
  foreach($riderV as $row1)
 {
 ?>
-<div class="col-md-2 mb-2 ">
+<div class="col-lg-2  col-md-3 col-sm-4 mb-2 ">
   <div class="card" style="width:200px">
     <?php
   if ($row1->photo == null) {

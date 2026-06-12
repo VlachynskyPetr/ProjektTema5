@@ -1,13 +1,16 @@
 <?= $this->extend('Layout/template'); ?>
 <?= $this->section("content"); ?>
-
+<?php
+/**
+ * @var array $riderInfoV
+ * @var object $riderBorn
+ */
+?>
 <h1 class="text-center p-2"> Závodníci z  <?=$riderBorn->name ?>  </h1>
 
 
 <?php
-/**
- * @param object $riderInfoV
- */
+
 
 
 

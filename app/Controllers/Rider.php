@@ -61,4 +61,8 @@ class Rider extends BaseController
         ];
         echo view("RiderBorn", $data);
      }
-}
+     function add() {
+        echo view('add');
+    }
+    }
+
