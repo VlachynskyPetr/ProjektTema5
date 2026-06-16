@@ -6,7 +6,7 @@
  * @var object $riderBorn
  */
 ?>
-<h1 class="text-center p-2"> Závodníci z  <?=$riderBorn->name ?>  </h1>
+<h1 class="text-center p-4" style="color: white;"> Závodníci z  <?=$riderBorn->name ?>  </h1>
 
 
 <?php

@@ -10,7 +10,7 @@
     margin: 0;
     min-height: 200vh;
 
-    background-image: url("img/pozadiKolo.png");
+    background-image: url("<?= base_url('img/pozadiKolo.png') ?>");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

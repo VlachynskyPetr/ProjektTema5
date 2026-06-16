@@ -10,12 +10,16 @@
 <?= $this->extend('Layout/template'); ?>
 <?= $this->section("content"); ?>
 
-<h1 class="text-center p-2"> Info o Závodníkovi <?= $rider3->first_name ?> <?= $rider3->last_name ?> </h1>
+<h1 class="text-center p-4" style="color: white;"> Info o Závodníkovi <?= $rider3->first_name ?> <?= $rider3->last_name ?> </h1>
 
 
 <?php
 
-
+$formatter = new IntlDateFormatter(
+    'cs_CZ', 
+    IntlDateFormatter::LONG, // Způsobí formát "4. července 2024"
+    IntlDateFormatter::NONE
+);
 
 
 
@@ -33,7 +37,10 @@ if ($riderInfoV->place_of_birth == null) {
 if ($riderInfoV->date_of_birth == null) {
     $narozeni = "???";
 } else {
-    $narozeni = $riderInfoV->date_of_birth;
+    // Převedeme textové datum z databáze na objekt času
+    $datum = new DateTime($riderInfoV->date_of_birth);
+    // Naformátujeme ho česky
+    $narozeni = $formatter->format($datum);
 }
 
 //vyska 3
